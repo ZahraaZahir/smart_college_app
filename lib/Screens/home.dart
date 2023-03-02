@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
             Text(
-              'Coming Courses',
+              'Academic Courses',
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -126,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: List.generate(courses.length, (index) {
           var data = courses[index];
           var size = MediaQuery.of(context).size;
+
           return Padding(
             padding: const EdgeInsets.only(right: 15, bottom: 20),
             child: Container(
@@ -191,9 +192,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                            color: Colors.black87,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700),
+                          color: Colors.black87,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -275,8 +277,8 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 25,
       ),
       Column(
-        children: List.generate(mycourses.length, (index) {
-          var data = mycourses[index];
+        children: List.generate(myCourses.length, (index) {
+          var data = myCourses[index];
           var size = MediaQuery.of(context).size;
           return Padding(
               padding: const EdgeInsets.only(bottom: 20),
@@ -284,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: const EdgeInsets.only(left: 10, right: 10),
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 19, 66, 92),
+                    color: const Color.fromARGB(255, 19, 66, 92),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
@@ -294,6 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Row(
                           children: [
                             Container(
+                              margin: EdgeInsets.only(right: 8),
                               height: size.width * .17,
                               width: size.width * .17,
                               child: ClipRRect(
@@ -303,7 +306,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 3,
                             ),
                             Expanded(
@@ -314,22 +317,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                   data['title'],
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 5,
                                 ),
-                                Text(
-                                  'Instructor: ${data['instructor_name']}',
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 11,
-                                  ),
-                                )
+                                Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'Instructor: ${data['instructor_name']}',
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 11,
+                                      ),
+                                    ))
                               ],
                             )),
                           ],
@@ -365,15 +370,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               )
                             ],
                           )),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Container(
                             width: 50,
                             alignment: Alignment.centerRight,
                             child: Text(
-                              '${data['percentage']}',
-                              style: TextStyle(
+                              '${data['percentage']}%',
+                              style: const TextStyle(
                                   color: Colors.amber,
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700),

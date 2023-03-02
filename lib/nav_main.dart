@@ -23,15 +23,19 @@ class _Nav_mainState extends State<Nav_main> {
   }
 
   Widget getScreen() {
-    List<Widget> screen = [HomeScreen(), ProfileScreen(), CoursesScreen()];
+    List<Widget> screen = [
+      HomeScreen(),
+      CoursesScreen(),
+      ProfileScreen(),
+    ];
     return IndexedStack(index: screenIndex, children: screen);
   }
 
   Widget getFooter() {
     List bottomItems = [
       'images/home_icon.svg',
+      'images/play_icon.svg',
       'images/user_icon.svg',
-      'images/course_icon.svg'
     ];
     return Container(
         height: 70,
@@ -59,9 +63,10 @@ class _Nav_mainState extends State<Nav_main> {
                       SvgPicture.asset(
                         bottomItems[index],
                         height: 17.5,
-                        color: screenIndex == index ? Colors.red : Colors.black,
+                        color:
+                            screenIndex == index ? Colors.blue : Colors.black,
                       ),
-                      SizedBox(height: 5.0),
+                      const SizedBox(height: 5.0),
                     ],
                   ),
                 );
